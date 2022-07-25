@@ -1,0 +1,29 @@
+.tasks-control{
+    display: flex;
+    align-items: center;
+}
+
+.duty{
+    width: 150px;
+    padding: 0.3rem;
+    font-size: 20px;
+    text-align: left;
+}
+
+.btn-duty{
+    border: none;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.btn-duty.edit{
+    background-color: #2ed573;
+    color: #fff;
+}
+
+.btn-duty.del{
+    background-color: #ff4757;
+    color:#fff;
+}
