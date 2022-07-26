@@ -1,14 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import AddTask from './components/AddTask/AddTask';
 import TaskList from './components/taskList/TaskList';
 
 function App() {
 
-const [task , setTask] = useState([
-  {id:1 , title:'react'},
-  {id:2 , title:'HTML'}
-]);
+  const [task , setTask] = useState([
+    // {id:1 , title:'react'},
+    // {id:2 , title:'HTML'}
+  ]);
+
+  useEffect (() =>{
+    const sendRequest = async() =>{
+      const response = await fetch('http://localhost:8000/tasks'); 
+      const responsData  = await response.json();
+      setTask(responsData);
+    }
+    sendRequest();
+  },[]);
 
   const deleteHandle = (id) =>{
     setTask(task.filter((item) => item.id !==id ))
