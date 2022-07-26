@@ -5,10 +5,7 @@ import TaskList from './components/taskList/TaskList';
 
 function App() {
 
-  const [task , setTask] = useState([
-    // {id:1 , title:'react'},
-    // {id:2 , title:'HTML'}
-  ]);
+  const [task , setTask] = useState([]);
 
   useEffect (() =>{
     const sendRequest = async() =>{
@@ -19,16 +16,23 @@ function App() {
     sendRequest();
   },[]);
 
-  const deleteHandle = (id) =>{
+  const deleteHandle =  async (id) =>{
+      await fetch (`http://localhost:8000/tasks/${id}`,{
+      method :'DELETE'
+    })
     setTask(task.filter((item) => item.id !==id ))
   }
 
-  const addHandle = (title) =>{
-    console.log(title);
-    const id = Math.floor(Math.random()*1000) ;
-    const newTask = {id , ...title};
-    console.log(newTask);
-    setTask([...task , newTask]);
+  const addHandle = async (title) =>{
+    const responseAdd = await fetch ("http://localhost:8000/tasks",{
+      method : "POST",
+      headers:{
+        'Content-type' : 'application/json'
+      },
+      body: JSON.stringify(title),
+    });
+    const newResponseAdd = await responseAdd.json();
+    setTask([...task , newResponseAdd]);
   }
 
   return (
