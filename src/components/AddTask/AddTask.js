@@ -1,10 +1,24 @@
 import './AddTask.css';
+import { useState } from 'react';
+const AddTask = ({onAdd}) => {
 
-const AddTask = () => {
+    const [title,setTitle] = useState('');
+
+    const submitForm =(event) =>{
+        event.preventDefault();
+        onAdd({title});
+        setTitle('');
+    }
+
     return(
         <div>
-            <form className="form">
-                <input placeholder="input task" className="input-form"/>
+            <form className="form" onSubmit={submitForm}>
+                <input 
+                    type="text" 
+                    value={title}
+                    placeholder="input task" 
+                    className="input-form"  
+                    onChange={(event) => setTitle(event.target.value)}/>
                 <button type="submit" className='btn-form'>Add</button>
             </form>
         </div>

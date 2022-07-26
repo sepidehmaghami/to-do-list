@@ -14,10 +14,18 @@ const [task , setTask] = useState([
     setTask(task.filter((item) => item.id !==id ))
   }
 
+  const addHandle = (title) =>{
+    console.log(title);
+    const id = Math.floor(Math.random()*1000) ;
+    const newTask = {id , ...title};
+    console.log(newTask);
+    setTask([...task , newTask]);
+  }
+
   return (
     <div className="App">
      <h1>To-Do List</h1>
-      <AddTask/>
+      <AddTask onAdd={addHandle}/>
       <TaskList duty={task} onDelete={deleteHandle}/>
     </div>
   );
