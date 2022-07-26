@@ -10,11 +10,15 @@ const [task , setTask] = useState([
   {id:2 , title:'HTML'}
 ]);
 
+  const deleteHandle = (id) =>{
+    setTask(task.filter((item) => item.id !==id ))
+  }
+
   return (
     <div className="App">
      <h1>To-Do List</h1>
       <AddTask/>
-      <TaskList duty={task}/>
+      <TaskList duty={task} onDelete={deleteHandle}/>
     </div>
   );
 }

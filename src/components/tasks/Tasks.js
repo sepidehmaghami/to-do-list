@@ -1,11 +1,11 @@
 import './Tasks.css';
 
-const Tasks = ({title}) =>{
+const Tasks = ({titles , txt , onDelete}) =>{
     return(
         <div className="tasks-control">
-            <div className='duty'>{title}</div>
+            <div className='duty'>{titles}</div>
             <button className='btn-duty edit' >Edit</button>
-            <button className='btn-duty del'>Delete</button>
+            <button className='btn-duty del' onClick={ () => onDelete(txt.id)}>Delete</button>
         </div>
     )
 }

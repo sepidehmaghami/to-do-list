@@ -8,6 +8,7 @@
     padding: 0.3rem;
     font-size: 20px;
     text-align: left;
+    font-family: sans-serif;
 }
 
 .btn-duty{
@@ -16,6 +17,7 @@
     padding: 0.5rem 1rem;
     border-radius: 10px;
     font-weight: bold;
+    font-family: monospace;
 }
 
 .btn-duty.edit{

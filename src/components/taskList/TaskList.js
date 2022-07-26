@@ -1,12 +1,12 @@
 import Tasks from "../tasks/Tasks";
 
-const TaskList=({duty}) =>{
+const TaskList=({duty , onDelete}) =>{
     return(
         <div>
               {duty.map( (item) => {
             return( 
            <div>
-             <Tasks key={item.id} duty={item} title={item.title}/>
+             <Tasks key={item.id} txt={item} titles={item.title} onDelete={onDelete}/>
            </div>
                 )
         } )}
