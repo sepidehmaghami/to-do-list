@@ -1,16 +1,14 @@
-import { useState } from 'react';
+import { Fragment,useState } from 'react';
 import './Tasks.css';
 
-const Tasks = ({titles , txt , onDelete}) =>{
+const Tasks = ({titles , txt , onDelete , onEdit}) =>{
 
     const [check , setCheck]= useState(false);
     const doneTask =() =>{
-        if(!check){
+        if(!check)
         setCheck(true);
-        }
-        else{
+        else
         setCheck(false);
-        }
     }
 
     const extra_styles = (check) => {
@@ -28,11 +26,36 @@ const Tasks = ({titles , txt , onDelete}) =>{
         }
     };
 
+      const [isPTag, setPTag] = useState(true);
+
+      const [title,setTitle] = useState('');
+      
+    const submitInput =(event) =>{
+        event.preventDefault();
+        setPTag(true);
+        onEdit(txt.id,{title});
+    }
+
     return(
         <div className="tasks-control">
             <input type="checkbox" onClick={doneTask}/>
-            <div className='duty'  style={extra_styles(check)}>{titles}</div>
-            <button className='btn-duty edit' >Edit</button>
+            <Fragment>
+                {isPTag ? (
+                    <div className='duty'  style={extra_styles(check)}>{titles}</div>
+                        ) : (
+                    <input  
+                    type="text" 
+                    placeholder={titles} 
+                    className="input-form"
+                    onChange={(event) => setTitle(event.target.value)}
+                    />
+                )}
+            </Fragment>
+            {isPTag ? (
+            <button className='btn-duty edit' onClick={() => setPTag(false)}>Edit</button>
+            ) : (
+            <button className='btn-duty edit' onClick={submitInput} type="submit">Add</button>
+            )}
             <button className='btn-duty del' onClick={ () => onDelete(txt.id)}>Delete</button>
         </div>
     )

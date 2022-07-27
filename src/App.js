@@ -32,16 +32,28 @@ function App() {
       body: JSON.stringify(title),
     });
     const newResponseAdd = await responseAdd.json();
+
     setTask([...task , newResponseAdd]);
   }
 
-
+  const editHandle =  async (id ,title) =>{
+    const responseEdit = await fetch ("http://localhost:8000/tasks",{
+      method : "PUT",
+      headers:{
+        'Content-type' : 'application/json'
+      },
+      body: JSON.stringify(title),
+    });
+    const newResponseEdit = await responseEdit.json();
+    setTask(newResponseEdit.id)
+  
+    }
 
   return (
     <div className="App">
      <h1>To-Do List</h1>
       <AddTask onAdd={addHandle}/>
-      <TaskList duty={task} onDelete={deleteHandle}/>
+      <TaskList duty={task} onDelete={deleteHandle} onEdit={editHandle}/>
     </div>
   );
 }
