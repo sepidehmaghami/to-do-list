@@ -1,14 +1,12 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "title": "HTML",
-      "flag": false
+      "title": "HTML 5",
+      "id": 1
     },
     {
-      "id": 2,
-      "title": "CSS",
-      "flag": false
+      "title": "CSS 3",
+      "id": 2
     },
     {
       "id": 3,

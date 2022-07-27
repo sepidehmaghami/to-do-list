@@ -37,7 +37,8 @@ function App() {
   }
 
   const editHandle =  async (id ,title) =>{
-    const responseEdit = await fetch ("http://localhost:8000/tasks",{
+    window.location.reload();
+    const responseEdit = await fetch (`http://localhost:8000/tasks/${id}`,{
       method : "PUT",
       headers:{
         'Content-type' : 'application/json'
@@ -45,8 +46,7 @@ function App() {
       body: JSON.stringify(title),
     });
     const newResponseEdit = await responseEdit.json();
-    setTask(newResponseEdit.id)
-  
+    setTask(newResponseEdit);
     }
 
   return (
