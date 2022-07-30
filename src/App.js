@@ -12,6 +12,7 @@ function App() {
       const response = await fetch('http://localhost:8000/tasks'); 
       const responsData  = await response.json();
       setTask(responsData);
+      console.log(responsData)
     }
     sendRequest();
   },[]);

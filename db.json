@@ -1,31 +1,33 @@
 {
   "tasks": [
     {
-      "title": "HTML 5",
+      "title": "HTML",
       "id": 1
     },
     {
-      "title": "CSS 3",
-      "id": 2
+      "title": "CSS",
+      "id": 2,
+      "check": false
     },
     {
+      "title": "Bootstrap 5",
       "id": 3,
-      "title": "Bootstrap",
-      "flag": false
+      "check": false
     },
     {
       "title": "JS",
       "id": 5,
-      "flag": false
+      "check": false
     },
     {
       "title": "React",
       "id": 6,
-      "flag": false
+      "check": false
     },
     {
-      "title": "API",
-      "id": 7
+      "title": "fetch",
+      "id": 7,
+      "check": false
     }
   ]
 }

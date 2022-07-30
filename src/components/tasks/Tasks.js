@@ -1,4 +1,4 @@
-import { Fragment,useState } from 'react';
+import { useState } from 'react';
 import './Tasks.css';
 
 const Tasks = ({titles , txt , onDelete , onEdit}) =>{
@@ -39,18 +39,17 @@ const Tasks = ({titles , txt , onDelete , onEdit}) =>{
     return(
         <div className="tasks-control">
             <input type="checkbox" onClick={doneTask}/>
-            <Fragment>
                 {isPTag ? (
                     <div className='duty'  style={extra_styles(check)}>{titles}</div>
                         ) : (
                     <input  
                     type="text" 
                     placeholder={titles} 
+                    value={title}
                     className="input-form"
                     onChange={(event) => setTitle(event.target.value)}
                     />
                 )}
-            </Fragment>
             {isPTag ? (
             <button className='btn-duty edit' onClick={() => setPTag(false)}>Edit</button>
             ) : (
