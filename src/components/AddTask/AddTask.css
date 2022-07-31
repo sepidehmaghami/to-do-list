@@ -2,7 +2,7 @@
 .input-form{
     border: none;
     border-bottom: 1px solid #31b6d7;
-    background-color: #bef3ff;
+    background-color: #a0e1fb;
     outline: none;
 }
 
@@ -11,8 +11,8 @@
     margin: 0.5rem;
     padding: 0.5rem 1.3rem;
     border-radius: 0.5rem;
-    background-color: #96ddf4;
-    color: #2521e6;
+    background-color: #fffc4b;
+    color: #ff2828;
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 2rem;

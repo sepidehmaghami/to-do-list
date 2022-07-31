@@ -6,7 +6,7 @@ const AddTask = ({onAdd}) => {
 
     const submitForm =(event) =>{
         event.preventDefault();
-        onAdd({title});
+        onAdd({title, check:false});
         setTitle('');
     }
 

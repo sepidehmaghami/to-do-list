@@ -33,7 +33,7 @@ const Tasks = ({titles , txt , onDelete , onEdit}) =>{
     const submitInput =(event) =>{
         event.preventDefault();
         setPTag(true);
-        onEdit(txt.id,{title});
+        onEdit(txt.id,{title,check:check});
     }
 
     return(

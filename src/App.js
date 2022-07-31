@@ -5,7 +5,11 @@ import TaskList from './components/taskList/TaskList';
 
 function App() {
 
-  const [task , setTask] = useState([]);
+  const [task , setTask] = useState([
+    {
+      id:"" , title:"" , check:false
+    }
+  ]);
 
   useEffect (() =>{
     const sendRequest = async() =>{
@@ -25,6 +29,7 @@ function App() {
   }
 
   const addHandle = async (title) =>{
+    window.location.reload();
     const responseAdd = await fetch ("http://localhost:8000/tasks",{
       method : "POST",
       headers:{
@@ -34,7 +39,7 @@ function App() {
     });
     const newResponseAdd = await responseAdd.json();
 
-    setTask([...task , newResponseAdd]);
+    setTask([{...task , newResponseAdd}]);
   }
 
   const editHandle =  async (id ,title) =>{
