@@ -1,15 +1,22 @@
 import { useState } from 'react';
 import './Tasks.css';
 
-const Tasks = ({titles , txt , onDelete , onEdit}) =>{
+const Tasks = ({titles , txt , onDelete , onEdit ,onDone}) =>{
 
-    const [check , setCheck]= useState(false);
+    const [check , setCheck]= useState();
     const doneTask =() =>{
-        if(!check)
-        setCheck(true);
-        else
-        setCheck(false);
-    }
+        alert(check)
+        if(!check){
+            setCheck(true);
+            const title =txt.title;
+            onDone(txt.id,{title, check:true});
+        }       
+        else{
+            setCheck(false);           
+            const title =txt.title;
+            onDone(txt.id,{title, check:false});
+        }
+        }
 
     const extra_styles = (check) => {
         if (check) {

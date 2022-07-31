@@ -1,29 +1,29 @@
 {
   "tasks": [
     {
-      "title": "HTML ",
+      "title": "HTML 5",
       "check": false,
       "id": 1
     },
     {
-      "title": "CSS",
-      "id": 2,
-      "check": false
+      "title": "CSS 3",
+      "check": false,
+      "id": 2
     },
     {
-      "title": "Bootstrap ",
+      "title": "Bootstrap",
       "check": false,
       "id": 3
     },
     {
-      "title": "JS",
-      "id": 5,
-      "check": false
+      "title": "Javascript",
+      "check": false,
+      "id": 5
     },
     {
       "title": "React",
       "check": false,
-      "id": 6
+      "id": 7
     }
   ]
 }

@@ -5,11 +5,7 @@ import TaskList from './components/taskList/TaskList';
 
 function App() {
 
-  const [task , setTask] = useState([
-    {
-      id:"" , title:"" , check:false
-    }
-  ]);
+  const [task , setTask] = useState([]);
 
   useEffect (() =>{
     const sendRequest = async() =>{
@@ -55,11 +51,24 @@ function App() {
     setTask(newResponseEdit);
     }
 
+    const doneHandle = async(id ,title)=>{
+      window.location.reload();
+      const responseDone = await fetch (`http://localhost:8000/tasks/${id}`,{
+        method : "PUT",
+        headers:{
+          'Content-type' : 'application/json'
+        },
+        body: JSON.stringify(title),
+      });
+      const newResponseDone = await responseDone.json();
+      setTask(newResponseDone);
+    }
+
   return (
     <div className="App">
      <h1>To-Do List</h1>
       <AddTask onAdd={addHandle}/>
-      <TaskList duty={task} onDelete={deleteHandle} onEdit={editHandle}/>
+      <TaskList duty={task} onDelete={deleteHandle} onEdit={editHandle} onDone={doneHandle}/>
     </div>
   );
 }
